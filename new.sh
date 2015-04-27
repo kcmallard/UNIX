@@ -89,7 +89,7 @@ case "$num" in
 	y=({{z..z},{a..y}})
 	;;
 	*)
-	echo "Sorry, you must use a shift less than 26 and greater than 0."
+	echo "Sorry, you must use a shift less than 26."
 	;;
 esac
 
@@ -100,17 +100,12 @@ done
 
 for i in {0..25}
 do
-	echo ${origin[${x[i]}]}
+	origin[${x[i]}]=${y[i]}
 done
-
-# for i in {0..25}
-# do
-# 	origin[${x[i]}]=${z[i]}
-# done
 
 for x in "${!origin[@]}"
 do
-	sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
+	# sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
 	echo ${x}   ${origin[${x}]}
 done
 

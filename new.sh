@@ -88,9 +88,9 @@ case "$num" in
 	25)
 	y=({{z..z},{a..y}})
 	;;
-	# -gt 25)
-	# echo "Sorry, you must use a shift less than 26."
-	# ;;
+	*)
+	echo "Sorry, you must use a shift less than 26 and greater than 0."
+	;;
 esac
 
 for i in {0..25}

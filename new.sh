@@ -89,7 +89,7 @@ case "$num" in
 	y=({{z..z},{a..y}})
 	;;
 	*)
-	echo "Sorry, you must use a shift less than 26."
+	echo "Sorry, you must use a shift from 0 to 25."
 	;;
 esac
 
@@ -105,14 +105,10 @@ done
 
 for x in "${!origin[@]}"
 do
-	# sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
-	echo ${x}   ${origin[${x}]}
+	sed 's/'${x}'/'${origin[${x}]}'/g' test.txt >> result.txt
 done
 
-
-
 # Take the output from test.txt and splooge it into the other document, thereby
-
 
 
 

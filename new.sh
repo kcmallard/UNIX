@@ -93,24 +93,40 @@ case "$num" in
 	;;
 esac
 
-for i in {0..25}
-do
-	origin[${x[i]}]=${y[i]}
-done
+fromset=""
+toset=""
 
 for i in {0..25}
 do
-	origin[${x[i]}]=${y[i]}
+	fromset="$fromset${x[i]}"
+	toset="$toset${y[i]}"
 done
 
-for a in "${!origin[@]}"
-do
-	for x in "${!origin[@]}"
-	do
-		sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
-		break
-	done
-done
+sed "y/$fromset/$toset/" original.txt > encoded.txt
+sed "y/$toset/$fromset/" encoded.txt > decoded.txt
+
+
+
+
+
+
+# for i in {0..25}
+# do
+# 	origin[${x[i]}]=${y[i]}
+# done
+
+# for i in {0..25}
+# do
+# 	origin[${x[i]}]=${y[i]}
+# done
+
+# for a in "${!origin[@]}"
+# do
+# 	for x in "${!origin[@]}"
+# 	do
+# 		sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
+# 	done
+# done
 
 # Take the output from test.txt and splooge it into the other document, thereby
 

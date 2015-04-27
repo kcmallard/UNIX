@@ -103,9 +103,13 @@ do
 	origin[${x[i]}]=${y[i]}
 done
 
-for x in "${!origin[@]}"
+for a in "${!origin[@]}"
 do
-	sed 's/'${x}'/'${origin[${x}]}'/g' test.txt >> result.txt
+	for x in "${!origin[@]}"
+	do
+		sed -i 's/'${x}'/'${origin[${x}]}'/g' test.txt
+		break
+	done
 done
 
 # Take the output from test.txt and splooge it into the other document, thereby
